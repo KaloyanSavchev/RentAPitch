@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace RentAPitch.Data.Models
 {
-    public class Pitch
+    public class User
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string PitchName { get; set; }
+        public string UserName { get; set; }
         [Required]
-        public string Location { get; set; }
-        [Required]
-        public int Description { get; set; }
-        [Required]
-        public decimal PricePerDay { get; set; }
+        public string Password { get; set; } 
+
+        public int PhoneNumber { get; set; }
+
+        public bool IsAdmin { get; set; }
+       
     }
 }
