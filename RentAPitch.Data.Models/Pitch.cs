@@ -7,17 +7,31 @@ using System.Threading.Tasks;
 
 namespace RentAPitch.Data.Models
 {
+    using static Constants.EntityConstants.PitchConstants;
     public class Pitch
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
-        public string PitchName { get; set; }
+        [StringLength(PitchNameMaxLength)]
+        public string PitchName { get; set; } = null!;
+
         [Required]
-        public string Location { get; set; }
+        [StringLength(LocationMaxLength)]
+        public string Location { get; set; } = null!;
+
+
         [Required]
-        public int Description { get; set; }
+        [StringLength(DescriptionMaxLength)]
+        public string Description { get; set; } = null!;
+
         [Required]
+        
+        public string ImageUrl { get; set; } = null!;
+
+        [Required]
+        [StringLength(PriceForDayMaxValue)]
         public decimal PricePerDay { get; set; }
     }
 }

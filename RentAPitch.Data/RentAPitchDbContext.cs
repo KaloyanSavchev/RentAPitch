@@ -15,5 +15,11 @@ namespace RentAPitch.Data
         {
 
         }
+
+       /* protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Pitch>()
+                .HasOne(h => h.)
+        }*/
     }
 }
