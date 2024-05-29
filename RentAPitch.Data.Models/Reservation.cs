@@ -16,10 +16,12 @@ namespace RentAPitch.Data.Models
         public DateTime StartDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
-        public int UserId { get; set; }
-        public User User { get; set; }
+        [ForeignKey(nameof(ApplicationUser))]
+        public Guid ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; } = null!;
 
+        [ForeignKey(nameof(Reservation))]
         public int PitchId { get; set; }
-        public Pitch Pitch { get; set; }
+        public Pitch Pitch { get; set; } = null!;
     }
 }
