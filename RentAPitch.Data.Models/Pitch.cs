@@ -10,6 +10,12 @@ namespace RentAPitch.Data.Models
     using static Constants.EntityConstants.PitchConstants;
     public class Pitch
     {
+        public Pitch()
+        {
+            CreatedAt = DateTime.UtcNow;
+            IsAvailable = true;
+            IsDelete = false;
+        }
         [Key]
         public int Id { get; set; }
 
@@ -33,5 +39,19 @@ namespace RentAPitch.Data.Models
         [Required]
         [StringLength(PriceForDayMaxValue)]
         public decimal PricePerDay { get; set; }
+
+        [Required]
+        public bool IsDelete { get; set; }
+
+        [Required]
+        public bool IsAvailable { get; set; }
+
+        [Required]
+        public DateTime CreatedAt { get; set; } 
+
+        [Required]
+        public DateTime UpdatedAt { get; set; }
+
+        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }
