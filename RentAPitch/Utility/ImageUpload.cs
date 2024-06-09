@@ -9,26 +9,26 @@
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public string SaveImageFile(IFormFile ImageUrl)
+        public string SaveImageFile(IFormFile pitchImageUrl)
         {
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            string uploadPath = Path.Combine(webRootPath, "upload");
-            if (!Directory.Exists(uploadPath))
+            if (pitchImageUrl != null || pitchImageUrl.Length > 0)
             {
-                Directory.CreateDirectory(uploadPath);
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                string uploadPath = Path.Combine(webRootPath, "upload");
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                string fileName = Guid.NewGuid().ToString() +
+                    Path.GetExtension(pitchImageUrl.FileName);
+                string filePath = Path.Combine(uploadPath, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    pitchImageUrl.CopyTo(fileStream);
+                }
+                return Path.Combine("upload", fileName);
             }
-
-
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageUrl.FileName); // Error
-            var filePath = Path.Combine(uploadPath, fileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                ImageUrl.CopyTo(fileStream);
-            }
-            return Path.Combine("upload", fileName);
+            return null;
         }
-
-
-
     }
 }

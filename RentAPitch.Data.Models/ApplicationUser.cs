@@ -11,22 +11,14 @@ namespace RentAPitch.Data.Models
 {
     using static Constants.EntityConstants.UserConstants;
 
-    public class ApplicationUser : IdentityUser<Guid>
-    {      
-        //[Required]
-        //[StringLength(UserNameMaxLength)]
-        //public string UserName { get; set; } = null!;
-        //[Required]
-        //[DataType(DataType.Password)]
-        //public string Password { get; set; } = null!;
+    public class ApplicationUser : IdentityUser
+    {
+        [Required]
+        [StringLength(UserNameMaxLength)]
+        public string UserName { get; set; } = null!;
 
-        //[Required]
-        //[StringLength(PhoneNumberMaxLenght)]
-        //public int PhoneNumber { get; set; }
+        public string Address { get; set; } = null!;
 
-        //public bool IsAdmin { get; set; }
-
-        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
-
+        public ICollection<Reservation> Bookings { get; set; } = new List<Reservation>();  
     }
 }

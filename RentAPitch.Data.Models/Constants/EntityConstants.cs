@@ -13,7 +13,6 @@ namespace RentAPitch.Data.Models.Constants
         public static class PitchConstants
         {
             public const int PitchNameMaxLength = 70;
-            public const int LocationMaxLength = 70;
             public const int DescriptionMaxLength = 500;
             public const int PriceForDayMaxValue = 1000;
         } 

@@ -6,7 +6,6 @@ namespace RentAPitch.Models.ViewModels.Pitch
     {
         public int Id { get; set; }     
         public string PitchName { get; set; } = null!;
-        public string Location { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string ImageUrl { get; set; } = null!;
         public decimal PricePerDay { get; set; }
@@ -14,6 +13,6 @@ namespace RentAPitch.Models.ViewModels.Pitch
         public bool IsDelete { get; set; }
         public DateTime CreatedAt { get; set; } 
         public DateTime? UpdatedAt { get; set; }
-
+        public decimal DailyRate { get; set; }
     }
 }

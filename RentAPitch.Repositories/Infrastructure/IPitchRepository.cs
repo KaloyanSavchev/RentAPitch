@@ -10,13 +10,9 @@ namespace RentAPitch.Repositories.Infrastructure
     public interface IPitchRepository
     {
         Task<IEnumerable<Pitch>> GetPitches();
-
         Task<Pitch> GetPitchById(int id);
-
-        Task InsertPitches(Pitch pitch);
-
-        Task UpdatePitches(Pitch pitch);
-
-        Task DeletePitches(int id);
+        Task InsertPitch(Pitch pokemon);
+        Task UpdatePitch(Pitch pokemon);
+        Task DeletePitch(int id);
     }
 }

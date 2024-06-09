@@ -21,12 +21,7 @@ namespace RentAPitch.Data.Models
 
         [Required]
         [StringLength(PitchNameMaxLength)]
-        public string PitchName { get; set; } = null!;
-
-        [Required]
-        [StringLength(LocationMaxLength)]
-        public string Location { get; set; } = null!;
-
+        public string PitchName { get; set; } = null!;       
 
         [Required]
         [StringLength(DescriptionMaxLength)]
